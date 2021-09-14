@@ -1,12 +1,12 @@
-class ApplicationController < ActionController::Base
+class ProductsController < ActionController::Base
 
     def index
-        @cart = current_cart
+        @cart = helpers.cart
     end
 
     def new
-        current_cart << params[:product][:name]
-        redirect_to root
+        helpers.cart << params[:product]
+        redirect_to products_path
     end
 end
   
